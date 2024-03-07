@@ -1,3 +1,15 @@
+# imports
+
+from sklearn.metrics import classification_report, ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import tensorflow as tf
+from tensorflow.keras.layers import TextVectorization
+from tensorflow.keras.models import Sequential
+from tensorflow.keras import layers, optimizers, regularizers
+from pprint import pprint
+
 # testing demo
 
 def demo_function(name):
@@ -5,9 +17,7 @@ def demo_function(name):
 
 ## classification metrics
 
-from sklearn.metrics import classification_report, ConfusionMatrixDisplay
-import matplotlib.pyplot as plt
-import numpy as np
+
 def classification_metrics(y_true, y_pred, label='',
                            output_dict=False, figsize=(8,4),
                            normalize='true', cmap='Blues',
@@ -317,9 +327,7 @@ def get_ngram_measures_finder(tokens, ngrams=2, measure='raw_freq', top_n=None, 
 
 # make text vectorization layer
 
-import tensorflow
-from tensorflow.keras.layers import TextVectorization
-from pprint import pprint
+
 def make_text_vectorization_layer(train_ds,  max_tokens=None, 
                                   split='whitespace',
                                   standardize="lower_and_strip_punctuation",
@@ -367,8 +375,6 @@ def make_text_vectorization_layer(train_ds,  max_tokens=None,
 
 # building an LSTM model
 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras import layers, optimizers, regularizers
 def build_lstm_model(text_vectorization_layer):
     
     # Define sequential model with pre-trained vectorization layer and *new* embedding layer
@@ -394,8 +400,7 @@ def build_lstm_model(text_vectorization_layer):
 
 # build gru model
 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras import layers, optimizers, regularizers
+
 def build_gru_model(text_vectorization_layer):
                 
     gru_model = Sequential([
